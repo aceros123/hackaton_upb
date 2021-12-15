@@ -181,11 +181,11 @@
                                             <h3 class="panel-title">Solicitar Servicio</h3>
                                         </div>
                                         <div class="panel-body search-widget">
-                                            <form action="" class=" form-inline"> 
+                                            <form  class=" form-inline"> 
                                                 <fieldset>
                                                     <div class="row">
                                                         <div class="col-xs-12">
-                                                            <input type="date" class="form-control" placeholder="Día">
+                                                            <input type="date" class="form-control" placeholder="Día" id="fecha">
                                                         </div>
                                                     </div>
                                                 </fieldset>
@@ -194,7 +194,7 @@
                                                     <div class="row">
                                                         <div class="col-xs-6">
         
-                                                            <select id="lunchBegins" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="Jornada">
+                                                            <select id="lunchBegins" class="selectpicker" id="hora" data-live-search="false" data-live-search-style="begins" title="Jornada">
 
                                                                 <option>8 Horas</option>
                                                                 <option>4 Horas AM</option>
@@ -203,7 +203,7 @@
                                                         </div>
                                                         <div class="col-xs-6">
         
-                                                            <input type="number" class="form-control" placeholder="Valor">
+                                                            <input type="number" class="form-control" placeholder="Valor" id="valor">
                                                         </div>
                                                     </div>
                                                 </fieldset>
@@ -222,29 +222,29 @@
                                                     <div class="row">
                                                         <div class="col-xs-2">
                                                             <div class="">
-                                                                <label> <input type="checkbox" checked>Limpieza</label>
+                                                                <label> <input type="checkbox" id="limpieza">Limpieza</label>
                                                             </div> 
                                                         </div>
         
                                                         <div class="col-xs-2">
                                                             <div class="">
-                                                                <label> <input type="checkbox"> Lavado de Ropa</label>
+                                                                <label> <input type="checkbox" id="lavado"> Lavado de Ropa</label>
                                                             </div>
                                                         </div> 
                                                         <div class="col-xs-2"> 
                                                             <div class="">
-                                                                <label> <input type="checkbox" checked> Planchado</label>
+                                                                <label> <input type="checkbox" id="planchado"> Planchado</label>
                                                             </div>
                                                         </div>
                                                         
                                                         <div class="col-xs-2"> 
                                                             <div class="checkbox">
-                                                                <label> <input type="checkbox" checked> Cocina </label>
+                                                                <label> <input type="checkbox" id="cocina"> Cocina </label>
                                                             </div>
                                                         </div> 
                                                         <div class="col-xs-2"> 
                                                             <div class="checkbox">
-                                                                <label><input type="checkbox"> Jardinería </label>
+                                                                <label><input type="checkbox" id="jardineria"> Jardinería </label>
                                                             </div>
                                                         </div> 
                                                     </div>
@@ -254,7 +254,7 @@
                                                 <fieldset >
                                                     <div class="row">
                                                         <div class="col-xs-12">  
-                                                            <input class="button btn largesearch-btn" value="Solicitar Servicio" type="submit">
+                                                            <input class="button btn largesearch-btn" value="Solicitar Servicio" type="submit" id="SolicitarServicio">
                                                         </div>  
                                                     </div>
                                                 </fieldset>                                     
@@ -387,14 +387,50 @@
         <script src="assets/js/price-range.js"></script>
         
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-        <script src="assets/js/gmaps.js"></script>        
-        <script src="assets/js/gmaps.init.js"></script>
+        <!-- <script src="assets/js/gmaps.js"></script>        
+        <script src="assets/js/gmaps.init.js"></script> -->
 
         <script src="assets/js/main.js"></script>
 
         <!-- firebase -->
-        <script src="assets/js/firebase.js"></script>
-        
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+            import { getFirestore, collection, addDoc, doc, getDoc, setDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
 
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyA67Ilzh7M7u8EJYXkq020mTD81zLee-as",
+                authDomain: "homeassist-daad6.firebaseapp.com",
+                projectId: "homeassist-daad6",
+                storageBucket: "homeassist-daad6.appspot.com",
+                messagingSenderId: "584495830199",
+                appId: "1:584495830199:web:618b9854ccabf0efe86932",
+                measurementId: "G-PHDFS3XH9T"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            const db = getFirestore(app);
+
+
+            document.getElementById("SolicitarServicio").addEventListener('click', async function(e){
+                e.preventDefault();
+                var ref = collection(db, "users");
+                const docRef =  await addDoc(
+                    ref,{
+                        name: "prueba",
+                        last_name: "prueba2",
+                        age: 12
+                    }    
+                )
+                    .then(()=>{
+                        console.log("create correct")
+                    })
+                    .catch((error)=>{
+                        console.log("el dato no fue guardado correctamente" + error)
+                    })
+            })
+        </script>
     </body>
 </html>

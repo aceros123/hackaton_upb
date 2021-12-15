@@ -1,89 +1,528 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HOME ASSIST</title>
+        <meta name="description" content="GARO template">
+        <meta name="author" content="">
+        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.6.1/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.6.1/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.6.1/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        <link rel="stylesheet" href="assets/css/normalize.css">
+        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/fontello.css">
+        <link href="assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+        <link href="assets/fonts/icon-7-stroke/css/helper.css" rel="stylesheet">
+        <link href="assets/css/animate.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="assets/css/bootstrap-select.min.css"> 
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/icheck.min_all.css">
+        <link rel="stylesheet" href="assets/css/price-range.css">
+        <link rel="stylesheet" href="assets/css/owl.carousel.css">  
+        <link rel="stylesheet" href="assets/css/owl.theme.css">
+        <link rel="stylesheet" href="assets/css/owl.transitions.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/responsive.css">
+    </head>
+    <body>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <!-- Body content -->
+
+        <div class="header-connect">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5 col-sm-8  col-xs-12">
+                        <div class="header-half header-call">
+                            <p>
+                                <span><i class="pe-7s-call"></i> + 57 300 1234567</span>
+                                <span><i class="pe-7s-mail"></i> info@home-assist.com</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2 col-md-offset-5  col-sm-3 col-sm-offset-1  col-xs-12">
+                        <div class="header-half header-social">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>        
+        <!--End top header -->
+
+        <nav class="navbar navbar-default ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt=""></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse yamm" id="navigation">
+                    <div class="button navbar-right">
+                        <a class="navbar-btn nav-button wow bounceInRight login" href="registro.html" data-wow-delay="0.45s">Login</a>
+                        <a class="navbar-btn nav-button wow fadeInRight" href="solicitar.html" data-wow-delay="0.48s">Solicitar</a>
+                    </div>
+                    <ul class="main-nav nav navbar-nav navbar-right">
+                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="index.html">HOME</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!-- End of nav bar -->
+
+        <div class="slider-area">
+            <div class="slider">
+                <div id="bg-slider" class="owl-carousel owl-theme">
+                    <div class="item"><img src="assets/img/slide1/slider-image-1.jpg" alt=""></div>
+                </div>
+            </div>
+            <div class="slider-content">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-sm-12">
+                        <h2>Solicita tu servicio</h2>
+                        <div class="search-form wow pulse" data-wow-delay="0.8s">
+
+                            <form action="" class=" form-inline">
+                                <div class="form-group">
+                                    <input type="date" class="form-control" placeholder="Dia">
+                                </div>
+                                <div class="form-group">                                   
+                                    <select id="lunchBegins" class="selectpicker" data-live-search="false" data-live-search-style="begins" title="Jornada">
+
+                                        <option>8 Horas</option>
+                                        <option>4 Horas AM</option>
+                                        <option>4 Horas PM</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" placeholder="Valor">
+                                </div>
+
+                                <div class="row"><h5 style="color:#818181">Tipo de servicio</h5></div>
+
+                                <div class="form-group col-lg-3 col-sm-6">
+                                        <div class="checkbox">
+                                            <label style="color:#818181">
+                                                <input type="checkbox"> Limpieza
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- End of  -->  
+
+                                    <div class="form-group col-lg-3 col-sm-6">
+                                        <div class="checkbox">
+                                            <label style="color:#818181">
+                                                <input type="checkbox"> Lavado de Ropa
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- End of  --> 
+
+                                    <div class="form-group col-lg-3 col-sm-6">
+                                        <div class="checkbox">
+                                            <label style="color:#818181">
+                                                <input type="checkbox"> Planchado
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- End of  --> 
+
+                                    <div class="form-group col-lg-3 col-sm-6">
+                                        <div class="checkbox">
+                                            <label style="color:#818181">
+                                                <input type="checkbox"> Cocina
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- End of  --> 
+
+                                    <div class="form-group col-lg-3 col-sm-6">
+                                        <div class="checkbox">
+                                            <label style="color:#818181">
+                                                <input type="checkbox"> Jardinería
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <!-- End of  --> 
+                                
+                                <div class="row"> 
+                                <button class="navbar-btn nav-button login" type="submit">Solicitar</button>
+                                </div>
+                                                 
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Count area -->
+        <div class="count-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2>Nuestras Estadísticas</h2> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-xs-12 percent-blocks m-main" data-waypoint-scroll="true">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="count-item">
+                                    <div class="count-item-circle">
+                                        <span class="pe-7s-users"></span>
+                                    </div>
+                                    <div class="chart" data-percent="5000">
+                                        <h2 class="percent" id="counter">0</h2>
+                                        <h5>Clientes</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="count-item">
+                                    <div class="count-item-circle">
+                                        <span class="pe-7s-home"></span>
+                                    </div>
+                                    <div class="chart" data-percent="12000">
+                                        <h2 class="percent" id="counter1">0</h2>
+                                        <h5>Asistentes</h5>
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="count-item">
+                                    <div class="count-item-circle">
+                                        <span class="pe-7s-flag"></span>
+                                    </div>
+                                    <div class="chart" data-percent="5">
+                                        <h2 class="percent" id="counter2">0</h2>
+                                        <h5>Ciudades</h5>
+                                    </div>
+                                </div> 
+                            </div> 
+                            <div class="col-sm-3 col-xs-6">
+                                <div class="count-item">
+                                    <div class="count-item-circle">
+                                        <span class="pe-7s-graph2"></span>
+                                    </div>
+                                    <div class="chart" data-percent="5000">
+                                        <h2 class="percent"  id="counter3">5000</h2>
+                                        <h5>Servicios</h5>
+                                    </div>
+                                </div> 
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Welcome area -->
+        <div class="Welcome-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 Welcome-entry  col-sm-12">
+                        <div class="col-md-5 col-md-offset-2 col-sm-6 col-xs-12">
+                            <div class="welcome_text wow fadeInLeft" data-wow-delay="0.3s" data-wow-offset="100">
+                                <div class="row">
+                                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                                        <!-- /.feature title -->
+                                        <h2>HOME ASSIST</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-sm-6 col-xs-12">
+                            <div  class="welcome_services wow fadeInRight" data-wow-delay="0.3s" data-wow-offset="100">
+                                <div class="row">
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="fa fa-home fa-4x"></i>
+                                            </div>
+                                            <h3>Limpieza</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="fa fa-shopping-basket fa-4x"></i>
+                                            </div>
+                                            <h3>Lavado Ropa</h3>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-xs-12 text-center">
+                                        <i class="welcome-circle"></i>
+                                    </div>
+
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="fa fa-user fa-4x"></i>
+                                            </div>
+                                            <h3>Planchado</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="fa fa-coffee fa-4x"></i>
+                                            </div>
+                                            <h3>Cocina</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 text-center">
+                                        <i class="welcome-circle"></i>
+                                    </div>
+
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="fa fa-pagelines fa-4x"></i>
+                                            </div>
+                                            <h3>Jardinería</h3>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 m-padding">
+                                        <div class="welcome-estate">
+                                            <div class="welcome-icon">
+                                                <i class="fa fa-heart fa-4x"></i>
+                                            </div>
+                                            <h3>Tu Asistente</h3>
+                                        </div>
+                                    </div>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--TESTIMONIALS -->
+        <div class="testimonial-area recent-property" style="background-color: #FCFCFC; padding-bottom: 15px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-sm-12 text-center page-title">
+                        <!-- /.feature title -->
+                        <h2>Testimonios</h2> 
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="row testimonial">
+                        <div class="col-md-12">
+                            <div id="testimonial-slider">
+                                <div class="item">
+                                    <div class="client-text">                                
+                                        <p>Ha sido de gran ayuda en nuestro hogar, y confiable.</p>
+                                        <h4><strong>Pedro Perez, </strong><i>Cliente</i></h4>
+                                    </div>
+                                    <div class="client-face wow fadeInRight" data-wow-delay=".9s"> 
+                                        <img src="assets/img/client-face1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="client-text">                                
+                                        <p>He podido incrementar mis ingresos, y ajustarlo a mi disponibilidad.</p>
+                                        <h4><strong>Liliana Rodriguez, </strong><i>Asistente</i></h4>
+                                    </div>
+                                    <div class="client-face">
+                                        <img src="assets/img/client-face2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="client-text">                                
+                                        <p>Ha sido maravilloso, he podido tener otros ingresos</p>
+                                        <h4><strong>Carlos Ruiz, </strong><i>Asistente</i></h4>
+                                    </div>
+                                    <div class="client-face">
+                                        <img src="assets/img/client-face1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="client-text">                                
+                                        <p>Muy buena alternativa para mi casa.</p>
+                                        <h4><strong>Lorena Soto, </strong><i>Cliente</i></h4>
+                                    </div>
+                                    <div class="client-face">
+                                        <img src="assets/img/client-face2.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- boy-sale area -->
+        <div class="boy-sale-area">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-md-offset-0 col-xs-12">
+                        <div class="asks-first">
+                            <div class="asks-first-circle">
+                                <span class="fa fa-search"></span>
+                            </div>
+                            <div class="asks-first-info">
+                                <h2>REGISTRATE COMO CLIENTE</h2>
+                                <p>Conoce y contacta con personas que pueden ayudarte con las labores de tu hogar.</p>                                        
+                            </div>
+                            <div class="asks-first-arrow">
+                                <a href="registro.html"><span class="fa fa-angle-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-10 col-sm-offset-1 col-xs-12 col-md-offset-0">
+                        <div  class="asks-first">
+                            <div class="asks-first-circle">
+                                <span class="fa fa-usd"></span>
+                            </div>
+                            <div class="asks-first-info">
+                                <h2>REGISTRATE COMO ASISTENTE</h2>
+                                <p>Registrate y haz parte de la comunidad de HOME ASSIT y contacta con los clientes.</p>
+                            </div>
+                            <div class="asks-first-arrow">
+                                <a href="registro.html"><span class="fa fa-angle-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <p  class="asks-call">LLAMANOS  : <span class="strong"> + 57 300 1234567</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer area-->
+        <div class="footer-area">
+
+            <div class=" footer">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>Contacto</h4>
+                                <div class="footer-title-line"></div>
+
+                                <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
+                                <p>Ante cualquier inquietud contacta con nosotros.</p>
+                                <ul class="footer-adress">
+                                    <li><i class="pe-7s-map-marker strong"> </i> Calle 1 # 2 - 3 Colombia</li>
+                                    <li><i class="pe-7s-mail strong"> </i> info@assist-home.com</li>
+                                    <li><i class="pe-7s-call strong"> </i> +57 300 1234567</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>Nosotros</h4>
+                                <div class="footer-title-line"></div>
+                                <ul class="footer-menu">
+                                    <li><a href="registro.html">Registro</a>  </li> 
+                                    <li><a href="contacto.html">Contacto</a></li> 
+                                    <li><a href="#">Términos y Condiciones </a>  </li> 
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer news-letter">
+                                <h4>HOME ASSIST</h4>
+                                <div class="footer-title-line"></div>
+                                <p>Somos una plataforma que conecta a los clientes los asistentes para las labores del hogar.</p>
+
+                                
+
+                                <div class="social pull-right"> 
+                                    <ul>
+                                        <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="#" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copy text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="pull-left">
+                            <span> (C) <a href="http://www.KimaroTec.com">KimaroTheme</a> , Todos los derechos reservados 2021  </span> 
+                        </div> 
+                        <div class="bottom-menu pull-right"> 
+                            <ul> 
+                                <li><a class="wow fadeInUp animated" href="index.html" data-wow-delay="0.2s">Home</a></li>
+                                <li><a class="wow fadeInUp animated" href="contacto.html" data-wow-delay="0.6s">Contacto</a></li>
+                            </ul> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="assets/js/modernizr-2.6.2.min.js"></script>
+
+        <script src="assets/js/jquery-1.10.2.min.js"></script> 
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/bootstrap-select.min.js"></script>
+        <script src="assets/js/bootstrap-hover-dropdown.js"></script>
+
+        <script src="assets/js/easypiechart.min.js"></script>
+        <script src="assets/js/jquery.easypiechart.min.js"></script>
+
+        <script src="assets/js/owl.carousel.min.js"></script>
+        <script src="assets/js/wow.js"></script>
+
+        <script src="assets/js/icheck.min.js"></script>
+        <script src="assets/js/price-range.js"></script>
+
+        <script src="assets/js/main.js"></script>
+
+    </body>
 </html>

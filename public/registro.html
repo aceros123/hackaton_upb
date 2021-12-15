@@ -137,7 +137,7 @@
                                 <input type="radio" class="form-control" name="tipo" id="asistente" value="asistente"> Asistente
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-default" id="registrar">Registrarse</button>
+                                <button class="btn btn-default" id="CrearRegistro">Registrarse</button>
                             </div>
                         </form>
                     </div>
@@ -309,15 +309,15 @@
 
 
         // registro con correo
-        document.getElementById("registrar").addEventListener('click', function (e) {
+        document.getElementById("CrearRegistro").addEventListener('click', function (e) {
             e.preventDefault()
             //crear usuario
             const nombre = document.getElementById("nombre_registro").value;
             const apellido = document.getElementById("apellido_registro").value;
             const email = document.getElementById("email_registro").value;
             const password = document.getElementById("password_registro").value;
-            const cliente = document.getElementById("cliente").value;
-            const asistente = document.getElementById("asistente").value;
+            const cliente = document.getElementById("cliente").checked;
+            const asistente = document.getElementById("asistente").checked;
 
 
             let numeroCaracteres = password.length;
@@ -333,19 +333,24 @@
 
                         async function CrearDocumento(e){
                             e.preventDefault()
-                            var ref = collection(db, "users");
+                            var ref = collection(db, "usuario");
                             const docRef =  await addDoc(
                                 ref,{
                                     nombre: nombre,
                                     apellido: apellido,
-                                    age: 12
+                                    email: email,
+                                    password: password,
+                                    cliente: cliente,
+                                    asistente: asistente,
                                 }    
                             )
                                 .then(()=>{
-                                    console.log("create correct")
+                                    //console.log("create correct")
+                                    alert("Creado Correctamente")
                                 })
                                 .catch((error)=>{
-                                    console.log("el dato no fue guardado correctamente" + error)
+                                    //console.log("El registro no fue guardado correctamente" + error)
+                                    alert("El registro no fue guardado correctamente" + error)
                                 })
                         }
 
@@ -357,7 +362,7 @@
                         console.log(errorCode + " " + errorMessage)
                     });
             } else {
-                alert("la contraseña debe tener minimo 8 caracteres")
+                alert("La contraseña debe tener minimo 8 caracteres")
             }
 
         })

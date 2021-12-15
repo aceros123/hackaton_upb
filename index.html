@@ -89,8 +89,6 @@
                     </div>
                     <ul class="main-nav nav navbar-nav navbar-right">
                         <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="index.html">HOME</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="servicios.html">Cliente</a></li>
-                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="servicios-asistente.html">Asistente</a></li>
                         <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contacto.html">Contacto</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -102,7 +100,6 @@
             <div class="slider">
                 <div id="bg-slider" class="owl-carousel owl-theme">
                     <div class="item"><img src="assets/img/slide1/slider-image-1.jpg" alt=""></div>
-                    <div class="item"><img src="assets/img/slide1/slider-image-1.jpg" alt=""></div>
                 </div>
             </div>
             <div class="slider-content">
@@ -111,7 +108,7 @@
                         <h2>Solicita tu servicio</h2>
                         <div class="search-form wow pulse" data-wow-delay="0.8s">
 
-                            <form class=" form-inline">
+                            <form class="form-inline">
                                 <div class="form-group">
                                     <input type="date" id="fecha" class="form-control" placeholder="Dia">
                                 </div>
@@ -132,7 +129,7 @@
                                 <div class="form-group col-lg-3 col-sm-6">
                                         <div class="checkbox">
                                             <label style="color:#818181">
-                                                <input type="checkbox"  id="limpieza" value="limpieza"> Limpieza
+                                                <input type="checkbox" id="limpieza" value="limpieza"> Limpieza
                                             </label>
                                         </div>
                                     </div>
@@ -175,7 +172,7 @@
                                     <!-- End of  --> 
                                 
                                 <div class="row"> 
-                                <button class="navbar-btn nav-button login" type="submit" id=SolicitarServicio>Solicitar</button>
+                                <button class="navbar-btn nav-button login" type="submit"  id="SolicitarServicio">Solicitar</button>
                                 </div>
                                                  
 
@@ -521,14 +518,12 @@
 
         <script src="assets/js/owl.carousel.min.js"></script>
         <script src="assets/js/wow.js"></script>
-
-        <script src="assets/js/icheck.min.js"></script>
-        <script src="assets/js/price-range.js"></script>
+        
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
 
         <script src="assets/js/main.js"></script>
-        <!-- firebase -->
-        <script src="assets/js/main.js"></script>
 
+        
         <!-- firebase -->
         <script type="module">
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
@@ -562,8 +557,8 @@
                 const cocina = document.getElementById("cocina").checked;
                 const jardineria = document.getElementById("jardineria").checked;
                 var ref = collection(db, "servicios"); //// CAMBIAR NOMBRE TABLA
-                //console.log(hora + fecha + limpieza + lavado);
-                const docRef =  await addDoc(
+                console.log(hora + fecha + limpieza + lavado);
+                /*const docRef =  await addDoc(
                     ref,{
                         fecha: fecha,
                         hora: hora,
@@ -576,14 +571,13 @@
                     }    
                 )
                     .then(()=>{
-                        //console.log();
                         alert("Solicitud Creada")
                     })
                     .catch((error)=>{
-                        //console.log();
                         alert("No pudo ser ingresado " + error)
-                    })
+                    })*/
             })
         </script>
+
     </body>
 </html>

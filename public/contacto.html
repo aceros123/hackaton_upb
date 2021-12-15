@@ -84,6 +84,8 @@
                 </div>
                 <ul class="main-nav nav navbar-nav navbar-right">
                     <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="index.html">HOME</a></li>
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="servicios.html">Cliente</a></li>
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="servicios-asistente.html">Asistente</a></li>
                     <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contacto.html">Contacto</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -140,13 +142,13 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="firstname">Nombres</label>
-                                            <input type="text" class="form-control" id="firstname" name="nombre">
+                                            <input type="text" class="form-control" id="nombre" name="nombre">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="lastname">Apellidos</label>
-                                            <input type="text" class="form-control" id="lastname" name="apellido">
+                                            <input type="text" class="form-control" id="apellido" name="apellido">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -158,17 +160,17 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="asunto">Asunto</label>
-                                            <input type="text" class="form-control" id="sunject" name="asunto">
+                                            <input type="text" class="form-control" id="asunto" name="asunto">
                                         </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="form-group">
                                             <label for="mensaje">Mensaje</label>
-                                            <textarea id="mesagge" class="form-control" name="mensaje"></textarea>
+                                            <textarea class="form-control" id="mensaje"></textarea>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 text-center">
-                                        <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send message</button>
+                                        <button type="submit" class="btn btn-primary" id="EnviarContacto"><i class="fa fa-envelope-o"></i> Enviar Mensaje</button>
                                     </div>
                                 </div>
                                 <!-- /.row -->
@@ -269,11 +271,61 @@
         <script src="assets/js/price-range.js"></script>
         
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-        <script src="assets/js/gmaps.js"></script>        
-        <script src="assets/js/gmaps.init.js"></script>
+        
 
         <script src="assets/js/main.js"></script>
         <!-- firebase -->
-        <script src="assets/js/firebase.js"></script>
+        
+
+        <!-- firebase -->
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+            import { getFirestore, collection, addDoc, doc, getDoc, setDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyA67Ilzh7M7u8EJYXkq020mTD81zLee-as",
+                authDomain: "homeassist-daad6.firebaseapp.com",
+                projectId: "homeassist-daad6",
+                storageBucket: "homeassist-daad6.appspot.com",
+                messagingSenderId: "584495830199",
+                appId: "1:584495830199:web:618b9854ccabf0efe86932",
+                measurementId: "G-PHDFS3XH9T"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            const db = getFirestore(app);
+
+
+            document.getElementById("EnviarContacto").addEventListener('click', async function(e){
+                e.preventDefault();
+                const nombre = document.getElementById("nombre").value;
+                const apellido = document.getElementById('apellido').value;
+                const email = document.getElementById('email').value;
+                const asunto = document.getElementById("asunto").value;
+                const mensaje = document.getElementById("mensaje").value;
+                var ref = collection(db, "contacto"); //// CAMBIAR NOMBRE TABLA
+                //console.log(hora + fecha + limpieza + lavado);
+                const docRef =  await addDoc(
+                    ref,{
+                        nombre: nombre,
+                        apellido: apellido,
+                        email: email,
+                        asunto: asunto,
+                        mensaje: mensaje,
+                    }    
+                )
+                    .then(()=>{
+                        //console.log();
+                        alert("Mensaje Enviado")
+                    })
+                    .catch((error)=>{
+                        //console.log();
+                        alert("Mensaje NO pudo ser enviado " + error)
+                    })
+            })
+        </script>
     </body>
 </html>

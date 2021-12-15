@@ -4,7 +4,7 @@
     <title>HOME ASSIST</title>
     <meta name="description" content="GARO template">
     <meta name="author" content="">
-    <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+    <meta name="keyword" content="html5, css, bootstrap">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
@@ -84,6 +84,8 @@
                 </div>
                 <ul class="main-nav nav navbar-nav navbar-right">
                     <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="index.html">HOME</a></li>
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="servicios.html">Cliente</a></li>
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="servicios-asistente.html">Asistente</a></li>
                     <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contacto.html">Contacto</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -418,6 +420,7 @@
                 e.preventDefault();
                 const hora = document.getElementById("hora").value;
                 const fecha = document.getElementById('fecha').value;
+                const valor = document.getElementById('valor').value;
                 const limpieza = document.getElementById("limpieza").checked;
                 const lavado = document.getElementById("lavado").checked;
                 const planchado = document.getElementById("planchado").checked;
@@ -429,6 +432,7 @@
                     ref,{
                         fecha: fecha,
                         hora: hora,
+                        valor: valor,
                         limpieza: limpieza,
                         lavado: lavado,
                         planchado: planchado,
@@ -437,9 +441,11 @@
                     }    
                 )
                     .then(()=>{
+                        //console.log();
                         alert("Solicitud Creada")
                     })
                     .catch((error)=>{
+                        //console.log();
                         alert("No pudo ser ingresado " + error)
                     })
             })

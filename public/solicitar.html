@@ -194,11 +194,11 @@
                                                     <div class="row">
                                                         <div class="col-xs-6">
         
-                                                            <select id="lunchBegins" class="selectpicker" id="hora" data-live-search="false" data-live-search-style="begins" title="Jornada">
+                                                            <select class="selectpicker" id="hora" data-live-search="false" data-live-search-style="begins" title="Jornada">
 
-                                                                <option>8 Horas</option>
-                                                                <option>4 Horas AM</option>
-                                                                <option>4 Horas PM</option>
+                                                                <option value="8 Horas">8 Horas</option>
+                                                                <option value="4 Horas AM">4 Horas AM</option>
+                                                                <option value="4 Horas PM">4 Horas PM</option>
                                                             </select>
                                                         </div>
                                                         <div class="col-xs-6">
@@ -222,29 +222,29 @@
                                                     <div class="row">
                                                         <div class="col-xs-2">
                                                             <div class="">
-                                                                <label> <input type="checkbox" id="limpieza">Limpieza</label>
+                                                                <label> <input type="checkbox" id="limpieza" value="limpieza">Limpieza</label>
                                                             </div> 
                                                         </div>
         
                                                         <div class="col-xs-2">
                                                             <div class="">
-                                                                <label> <input type="checkbox" id="lavado"> Lavado de Ropa</label>
+                                                                <label> <input type="checkbox" id="lavado" value="lavado"> Lavado de Ropa</label>
                                                             </div>
                                                         </div> 
                                                         <div class="col-xs-2"> 
                                                             <div class="">
-                                                                <label> <input type="checkbox" id="planchado"> Planchado</label>
+                                                                <label> <input type="checkbox" id="planchado" value="planchado"> Planchado</label>
                                                             </div>
                                                         </div>
                                                         
                                                         <div class="col-xs-2"> 
                                                             <div class="checkbox">
-                                                                <label> <input type="checkbox" id="cocina"> Cocina </label>
+                                                                <label> <input type="checkbox" id="cocina" value="cocina"> Cocina </label>
                                                             </div>
                                                         </div> 
                                                         <div class="col-xs-2"> 
                                                             <div class="checkbox">
-                                                                <label><input type="checkbox" id="jardineria"> Jardinería </label>
+                                                                <label><input type="checkbox" id="jardineria" value="jardineria"> Jardinería </label>
                                                             </div>
                                                         </div> 
                                                     </div>
@@ -416,12 +416,24 @@
 
             document.getElementById("SolicitarServicio").addEventListener('click', async function(e){
                 e.preventDefault();
-                var ref = collection(db, "users");
+                const hora = document.getElementById("hora").value;
+                const fecha = document.getElementById('fecha').value;
+                const limpieza = document.getElementById("limpieza").checked;
+                const lavado = document.getElementById("lavado").checked;
+                const planchado = document.getElementById("planchado").checked;
+                const cocina = document.getElementById("cocina").checked;
+                const jardineria = document.getElementById("jardineria").checked;
+                var ref = collection(db, "servicios"); //// CAMBIAR NOMBRE TABLA
+                //console.log(hora + fecha + limpieza + lavado);
                 const docRef =  await addDoc(
                     ref,{
-                        name: "prueba",
-                        last_name: "prueba2",
-                        age: 12
+                        fecha: fecha,
+                        hora: hora,
+                        limpieza: limpieza,
+                        lavado: lavado,
+                        planchado: planchado,
+                        cocina: cocina,
+                        jardineria: jardineria,
                     }    
                 )
                     .then(()=>{

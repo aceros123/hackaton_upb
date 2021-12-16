@@ -172,9 +172,10 @@
                             </div>
                         </div>
 
-                        <div class="section"> 
-                            <div id="list-type" class="proerty-th-list">
-                                <div class="col-md-4 p0">
+                        <div class="section" id="list"> 
+                            <div id="list-type" class="proerty-th-list" id="servicio">
+                                <!--  lista inicio -->
+                                <div class="col-md-4 p0" >
                                     <div class="box-two proerty-item">
                                         <div class="item-thumb">
                                             <img src="assets/img/sin-imagen.jpg" alt="" width="50px" height="50px">
@@ -199,58 +200,9 @@
                                         </div>
                                     </div>
                                 </div> 
+<!-- lista fin  -->
 
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <img src="assets/img/client-face1.png" alt="" width="50px" height="50px">
-                                        </div>
-                                        <div class="item-entry overflow">
-                                            <h5>
-                                                Juan Díaz  - Asistente del Hogar
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                            </h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Día :</b> <span style="color: 005a5a;"><strong>12 Dic 2021  |  4 Horas AM</span> </strong></span>
-                                            <span class="proerty-price pull-right"> $ 40,000</span>
-                                            <div class="property-icon">
-                                                Limpieza | Lavado
-                                                <div class="dealer-action pull-right">                                        
-                                                    <input class="btn btn-default" value="Aceptado" type="submit">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="col-md-4 p0">
-                                    <div class="box-two proerty-item">
-                                        <div class="item-thumb">
-                                            <img src="assets/img/client-face1.png" alt="" width="50px" height="50px">
-                                        </div>
-                                        <div class="item-entry overflow">
-                                            <h5>
-                                                Luis Ruiz - Asistente del Hogar
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                            </h5>
-                                            <div class="dot-hr"></div>
-                                            <span class="pull-left"><b> Día :</b> <span style="color: 005a5a;"><strong>12 Dic 2021  |  4 Horas AM</span> </strong></span>
-                                            <span class="proerty-price pull-right"> $ 30,000</span>
-                                            <div class="property-icon">
-                                                Limpieza | Lavado | Cocina
-                                                <div class="dealer-action pull-right">                                        
-                                                    <input class="btn btn-success" value="Calificado" type="submit">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
                         </div>
@@ -350,11 +302,71 @@
         <script src="assets/js/price-range.js"></script>
         
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-        <script src="assets/js/gmaps.js"></script>        
-        <script src="assets/js/gmaps.init.js"></script>
+
 
         <script src="assets/js/main.js"></script>
         <!-- firebase -->
-        <script src="assets/js/firebase.js"></script>
+        <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+        import { getFirestore, collection, addDoc, doc, getDoc, setDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+        
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA67Ilzh7M7u8EJYXkq020mTD81zLee-as",
+            authDomain: "homeassist-daad6.firebaseapp.com",
+            projectId: "homeassist-daad6",
+            storageBucket: "homeassist-daad6.appspot.com",
+            messagingSenderId: "584495830199",
+            appId: "1:584495830199:web:618b9854ccabf0efe86932",
+            measurementId: "G-PHDFS3XH9T"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+
+        const tarjeta = document.getElementById("lista");
+
+        $(document).ready(function(){
+            const crearTarjeta = doc(db, 'servicios');
+
+           const docSnap = await crearTarjeta((sq)=>{
+                $("#servicio").html('');
+                sq.forEach(doc => 
+                $("#servicio").append(
+                    ` <div class="col-md-4 p0" id="servicio">
+                        <div class="box-two proerty-item">
+                            <div class="item-thumb">
+                                <img src="assets/img/sin-imagen.jpg" alt="" width="50px" height="50px">
+                            </div>
+                            <div class="item-entry overflow">
+                                <h5>
+                                    EN ESPERA DE ACEPTACIÓN
+                                    <i class="fa fa-star" style="color: #9d9e9b;"></i>
+                                    <i class="fa fa-star" style="color: #9d9e9b;"></i>
+                                    <i class="fa fa-star" style="color: #9d9e9b;"></i>
+                                    <i class="fa fa-star" style="color: #9d9e9b;"></i>
+                                </h5>
+                                <div class="dot-hr"></div>
+                                <span class="pull-left"><b> Día :</b> <span style="color: 005a5a;"><strong>${docSnap.data().fecha}  |  ${docSnap.data().hora}</span> </strong></span>
+                                <span class="proerty-price pull-right">${docSnap.data().valor}</span>
+                                <div class="property-icon">
+                                    Limpieza | Lavado | Planchado | Cocina | Jardinería
+                                    <div class="dealer-action pull-right">                                        
+                                        <input class="btn btn-warning" value="En espera" type="submit">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> `
+                ))
+            })
+        })
+
+
+        
+        </script>
     </body>
 </html>

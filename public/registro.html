@@ -339,9 +339,9 @@
             const cliente = document.getElementById("cliente").checked;
             const asistente = document.getElementById("asistente").checked;
 
-
-            let numeroCaracteres = password.length;
-            if (numeroCaracteres >= 8) {
+            let regex = "^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$"
+            
+            if (!password.match(regex)) {
 
                 createUserWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
@@ -358,7 +358,7 @@
                         console.log(errorCode + " " + errorMessage)
                     });
             } else {
-                alert("la contraseña debe tener minimo 8 caracteres")
+                alert("la contraseña debe tener minimo 8 caracteres una mayuscula y un caracter especial ")
             }
 
         })

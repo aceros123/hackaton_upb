@@ -84,6 +84,8 @@
                 </div>
                 <ul class="main-nav nav navbar-nav navbar-right">
                     <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="index.html">HOME</a></li>
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="servicios.html">Cliente</a></li>
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="servicios-asistente.html">Asistente</a></li>
                     <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="contacto.html">Contacto</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -171,20 +173,19 @@
                         </div>
 
                         <div class="section"> 
-                            <div id="list-type" class="proerty-th-list" id="list">
-                                <!-- inicio tarjeta -->
+                            <div id="list-type" class="proerty-th-list">
                                 <div class="col-md-4 p0">
                                     <div class="box-two proerty-item">
                                         <div class="item-thumb">
-                                            <img src="assets/img/client-face1.png" alt="" width="50px" height="50px">
+                                            <img src="assets/img/sin-imagen.jpg" alt="" width="50px" height="50px">
                                         </div>
                                         <div class="item-entry overflow">
                                             <h5>
-                                                Pedro Perez 
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
-                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                                EN ESPERA DE ACEPTACIÓN
+                                                <i class="fa fa-star" style="color: #9d9e9b;"></i>
+                                                <i class="fa fa-star" style="color: #9d9e9b;"></i>
+                                                <i class="fa fa-star" style="color: #9d9e9b;"></i>
+                                                <i class="fa fa-star" style="color: #9d9e9b;"></i>
                                             </h5>
                                             <div class="dot-hr"></div>
                                             <span class="pull-left"><b> Día :</b> <span style="color: 005a5a;"><strong>12 Dic 2021  |  4 Horas AM</span> </strong></span>
@@ -192,14 +193,64 @@
                                             <div class="property-icon">
                                                 Limpieza | Lavado | Planchado | Cocina | Jardinería
                                                 <div class="dealer-action pull-right">                                        
-                                                    <input class="btn btn-default" value="Solicitar Servicio" type="submit">
+                                                    <input class="btn btn-warning" value="En espera" type="submit">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div> 
-                                        <!-- fin tarjeta -->
-                                
+
+                                <div class="col-md-4 p0">
+                                    <div class="box-two proerty-item">
+                                        <div class="item-thumb">
+                                            <img src="assets/img/client-face1.png" alt="" width="50px" height="50px">
+                                        </div>
+                                        <div class="item-entry overflow">
+                                            <h5>
+                                                Juan Díaz  - Asistente del Hogar
+                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                            </h5>
+                                            <div class="dot-hr"></div>
+                                            <span class="pull-left"><b> Día :</b> <span style="color: 005a5a;"><strong>12 Dic 2021  |  4 Horas AM</span> </strong></span>
+                                            <span class="proerty-price pull-right"> $ 40,000</span>
+                                            <div class="property-icon">
+                                                Limpieza | Lavado
+                                                <div class="dealer-action pull-right">                                        
+                                                    <input class="btn btn-default" value="Aceptado" type="submit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 p0">
+                                    <div class="box-two proerty-item">
+                                        <div class="item-thumb">
+                                            <img src="assets/img/client-face1.png" alt="" width="50px" height="50px">
+                                        </div>
+                                        <div class="item-entry overflow">
+                                            <h5>
+                                                Luis Ruiz - Asistente del Hogar
+                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                                <i class="fa fa-star" style="color: #d3e209;"></i>
+                                            </h5>
+                                            <div class="dot-hr"></div>
+                                            <span class="pull-left"><b> Día :</b> <span style="color: 005a5a;"><strong>12 Dic 2021  |  4 Horas AM</span> </strong></span>
+                                            <span class="proerty-price pull-right"> $ 30,000</span>
+                                            <div class="property-icon">
+                                                Limpieza | Lavado | Cocina
+                                                <div class="dealer-action pull-right">                                        
+                                                    <input class="btn btn-success" value="Calificado" type="submit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
@@ -304,17 +355,6 @@
 
         <script src="assets/js/main.js"></script>
         <!-- firebase -->
-        <script type="module">
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
-            //signInWithRedirect, signInWithPopup, GoogleAuthProvider,getRedirectResult,
-            import { getAuth, signInWithRedirect, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-            import { getFirestore, collection, addDoc, doc, getDoc, setDoc, updateDoc, deleteDoc, deleteField } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
-            
-            document.getElementById("lista").append
-
-
-
-        </script>
+        <script src="assets/js/firebase.js"></script>
     </body>
 </html>
